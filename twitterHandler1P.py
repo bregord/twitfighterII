@@ -1,6 +1,7 @@
 import tweepy
 import pprint
 import time
+import emu
 
 consumer_key = "8vY1DFoK47n0mol2uzD7p1FtT"
 consumer_secret = "aysBMg9mcYbJp58nahDT2HxmeQMbb8L1mtU5rGPCe6JxkYN65b"
@@ -100,16 +101,11 @@ def buildMoveList(player1, player2, sequence):
     for el in sequence:
         #player 1 goes
         if el == 1:
-        #
-            sendMove()
+            emu.sendMove()
 
         #player 2 goes
         elif el == 2:
-            #
-    print("blah")
-
-
-
+            emu.sendMove()
 
 """
 TO DO:
@@ -128,6 +124,5 @@ While Loop: Pool every x seconds. Grab everything that is more recent than that.
 
 """
 More tweets you enter
-
 
 """
