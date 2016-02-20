@@ -63,24 +63,30 @@ while working:
         initTime = time.time()
         resetState()
 
-    print("THIS IS THE " + str(count) + " request")
-
     if recId == 0:
         public_tweets = api.home_timeline(count=20)
-        if public_tweets is None:
-            break
+        if public_tweets is None or public_tweets == []:
+            time.sleep(15)
+            continue
         else:
             recId = public_tweets[0].id
     else:
         public_tweets = api.home_timeline(since_id=recId, count=20)
-        recId = public_tweets[0].id
+        if public_tweets is None or public_tweets == []:
+            #print("OUT OF RANGE")
+            time.sleep(15)
+            continue
+
+        else:
+            #print(public_tweets)
+            recId = public_tweets[0].id
 
     for tweet in public_tweets:
         print (tweet.text + "\n")
 
 
         for el in tweet.entities['hashtags']:
-            print(el['text'])
+            #print(el['text'])
             tag = el['text'].lower()
 
             if(tag == player1Tag):
@@ -110,8 +116,6 @@ while working:
 
 
 #This hits the set reset button on xdotool
-def resetState():
-    print("resetting game")
 
 """
 TO DO:

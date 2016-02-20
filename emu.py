@@ -4,8 +4,8 @@ import time
 pathToEmu = "./StreetFighter2.sfc"
 
 #left, up, right, down
-p1DMaps= ['a', 'w', 'd', 's']
-p2DMaps= ['k','o', ';', 'l']
+p1DMaps= ['a', 'd', 'w', 's']
+p2DMaps= ['o','k', ';', 'l']
 
 #lshoulder, rshoulder, a, b, x, y
 p1AMaps = ["q", "e", "f", "g", "c", "v"]
