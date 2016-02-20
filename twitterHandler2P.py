@@ -67,8 +67,10 @@ while working:
 
     if recId == 0:
         public_tweets = api.home_timeline(count=20)
-        print(public_tweets[0].id)
-        recId = public_tweets[0].id
+        if public_tweets is None:
+            break
+        else:
+            recId = public_tweets[0].id
     else:
         public_tweets = api.home_timeline(since_id=recId, count=20)
         recId = public_tweets[0].id
@@ -103,7 +105,7 @@ while working:
     moveListPlayer2.clear()
 
     #30 second window
-    if(30 -timeDiff > 0):
+    if(60 -timeDiff > 0):
         time.sleep(30-timeDiff)
 
 

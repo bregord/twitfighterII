@@ -28,13 +28,13 @@ def sendMove(player, moveList):
 
         for letter in word:
             button = ord(letter) % 6
-            commandString += button
+            commandString += playerAction(player, button)
 
         if player == 1:
-            commandString += " keyup " + p1DMaps[len(word) % 4]
+            commandString += " keyup --delay 50 " + p1DMaps[len(word) % 4]
 
         elif player == 2:
-            commandString += " keyup " + p2DMaps[len(word) %4]
+            commandString += " keyup --delay 50 " + p2DMaps[len(word) %4]
 
     sendCommand(commandString)
 
@@ -48,18 +48,18 @@ def sendCommand(commandString):
 def playerMove(player, direction):
     if(player ==1):
 
-        return " keydown " + p1DMaps[direction]
+        return " keydown --delay 50 " + p1DMaps[direction]
 
     if(player ==2):
-        return " keydown " + p2DMaps[direction]
+        return " keydown --delay 50 " + p2DMaps[direction]
 
 def playerAction(player, button):
 
     if(player ==1):
-        return " key " + p1AMaps[button]
+        return " key --delay 50 " + p1AMaps[button]
 
     if(player ==2):
-        return " key " + p2AMaps[button]
+        return " key --delay 50" + p2AMaps[button]
 
 
 def initGame():
