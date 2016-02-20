@@ -72,12 +72,9 @@ while working:
 
     print (moveListPlayer1)
 
-    buildMoveList(moveListPlayer1, movelistPlayer2, turnSequence)
-
     preTime = time.time()
-    #compute moves here
 
-    #print and send off each move here.
+    buildMoveList(moveListPlayer1, movelistPlayer2, turnSequence)
 
 
     timeDiff = time.time() - preTime
