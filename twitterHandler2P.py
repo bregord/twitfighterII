@@ -3,6 +3,24 @@ import pprint
 import time
 import emu
 
+#takoes 2 lists of moves.
+#sends each sequence of moves, and prints off the tweets. One for Player 1, one for player 2
+def buildMoveList(player1, player2, sequence):
+
+    for el in sequence:
+        #player 1 goes
+        if el == 1:
+            moves = player1.pop()
+            emu.sendMove(el, moves)
+            print(moves + "\n")
+
+        #player 2 goes
+        elif el == 2:
+            moves = player2.pop()
+            emu.sendMove(el, moves)
+            print(moves + "\n")
+
+
 consumer_key = "8vY1DFoK47n0mol2uzD7p1FtT"
 consumer_secret = "aysBMg9mcYbJp58nahDT2HxmeQMbb8L1mtU5rGPCe6JxkYN65b"
 access_token ="2484767203-bapj1TnALxD1NR2mAKLViUHraWo1jlIzKEGPDdc"
@@ -31,7 +49,9 @@ player1Tag = "teamscorpion"
 player2Tag = "teamsubzero"
 
 #init game
-#emu.initGame
+emu.initGame
+
+emu.resetGame()
 
 timeLimit = 3*100
 
@@ -61,7 +81,7 @@ while working:
             print(el['text'])
             tag = el['text'].lower()
 
-            if(tag != player1Tag):
+            if(tag == player1Tag):
                 moveListPlayer1.append(tweet.text)
                 turnSequence.append(1)
 
@@ -90,24 +110,6 @@ while working:
 #This hits the set reset button on xdotool
 def resetState():
     print("resetting game")
-
-#takoes 2 lists of moves.
-#sends each sequence of moves, and prints off the tweets. One for Player 1, one for player 2
-def buildMoveList(player1, player2, sequence):
-
-    for el in sequence:
-        #player 1 goes
-        if el == 1:
-            moves = player1.pop()
-            emu.sendMove(el, moves)
-            print(moves + "\n")
-
-        #player 2 goes
-        elif el == 2:
-            moves = player2.pop()
-            emu.sendMove(el, moves)
-            print(moves + "\n")
-
 
 """
 TO DO:
