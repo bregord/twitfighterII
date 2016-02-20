@@ -21,10 +21,10 @@ def buildMoveList(player1, player2, sequence):
             print(moves + "\n")
 
 
-consumer_key = "8vY1DFoK47n0mol2uzD7p1FtT"
-consumer_secret = "aysBMg9mcYbJp58nahDT2HxmeQMbb8L1mtU5rGPCe6JxkYN65b"
-access_token ="2484767203-bapj1TnALxD1NR2mAKLViUHraWo1jlIzKEGPDdc"
-access_token_secret = "Ui6zLQx6nKy2fTakfb8NbF8kOg9hZJP5NwV4v4es9U3wQ"
+consumer_key = "q8kbC8wm9pSZqkE0vuSe6gZZ9"
+consumer_secret = "SjJ1iMmxjLv86DApyJskCJ1Mx5Xd1Ox8uCl6SzRidBBwzeDJ1g"
+access_token ="3209355825-R6dkFlqBsT2bB4rIRDpXv5V8bsK9uIYqtWgVEMC"
+access_token_secret = "zb9UDUVRW6UuE0D2rjqh2JsEnw1NwsGu10aE3izZjAiM5"
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
@@ -45,13 +45,13 @@ moveListPlayer1 = []
 moveListPlayer2 = []
 turnSequence = []
 
-player1Tag = "teamscorpion"
-player2Tag = "teamsubzero"
+player1Tag = "teamryu"
+player2Tag = "teamken"
 
 #init game
 emu.initGame
 
-emu.resetGame()
+emu.resetState()
 
 timeLimit = 3*100
 
@@ -86,15 +86,15 @@ while working:
                 turnSequence.append(1)
 
             elif(tag == player2Tag):
-                moveListPlayer2.append(text)
+                moveListPlayer2.append(tweet.text)
                 turnSequence.append(2)
             break
 
-    print (moveListPlayer1)
 
     preTime = time.time()
 
-    buildMoveList(moveListPlayer1, movelistPlayer2, turnSequence)
+
+    buildMoveList(moveListPlayer1, moveListPlayer2, turnSequence)
 
 
     timeDiff = time.time() - preTime
