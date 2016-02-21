@@ -21,10 +21,10 @@ def buildMoveList(player1, player2, sequence):
             print(moves + "\n")
 
 
-consumer_key = "q8kbC8wm9pSZqkE0vuSe6gZZ9"
-consumer_secret = "SjJ1iMmxjLv86DApyJskCJ1Mx5Xd1Ox8uCl6SzRidBBwzeDJ1g"
-access_token ="3209355825-R6dkFlqBsT2bB4rIRDpXv5V8bsK9uIYqtWgVEMC"
-access_token_secret = "zb9UDUVRW6UuE0D2rjqh2JsEnw1NwsGu10aE3izZjAiM5"
+consumer_key = "CONSUMER KEY HERE"
+consumer_secret = "CONSUMER SECRET HERE"
+access_token ="ACCESS TOKEN HERE"
+access_token_secret = "ACCESS TOKEN SECRET HERE"
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
@@ -45,8 +45,8 @@ moveListPlayer1 = []
 moveListPlayer2 = []
 turnSequence = []
 
-player1Tag = "teamryu"
-player2Tag = "teamken"
+player1Tag = "HASHTAG HERE"
+player2Tag = "HASHTAG HERE"
 
 #init game
 emu.initGame
@@ -61,20 +61,23 @@ while working:
 
     if(time.time() - initTime  > timeLimit):
         initTime = time.time()
-        resetState()
+        emu.resetState()
 
     if recId == 0:
+
+        #public_tweets = api.mentions_timeline(since_id=recId, count=20)
         public_tweets = api.home_timeline(count=20)
         if public_tweets is None or public_tweets == []:
-            time.sleep(15)
+            time.sleep(30)
             continue
         else:
             recId = public_tweets[0].id
     else:
         public_tweets = api.home_timeline(since_id=recId, count=20)
+        #public_tweets = api.mentions_timeline(since_id=recId, count=20)
         if public_tweets is None or public_tweets == []:
             #print("OUT OF RANGE")
-            time.sleep(15)
+            time.sleep(30)
             continue
 
         else:
